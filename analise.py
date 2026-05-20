@@ -34,7 +34,7 @@ print(df.head())
 print('\nTotal de respostas:', len(df))
 
 # =====================================================
-# RENOMEAR COLUNAS (FACILITA O TRABALHO)
+# RENOMEAR COLUNAS
 # =====================================================
 
 renomear = {
@@ -265,7 +265,7 @@ def executar_anacor(var1, var2):
     }
 
 # =====================================================
-# PARES IMPORTANTES PARA O TCC
+# PARES DE ANÁLISE
 # =====================================================
 
 pares = [
