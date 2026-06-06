@@ -56,6 +56,24 @@ renomear = {
 
 df = df.rename(columns=renomear)
 
+# Nomes que serão usados nas legendas e títulos
+mapa_nomes_reversos = {
+    'area': 'Área de atuação',
+    'experiencia': 'Experiência profissional',
+    'freq_uso': 'Frequência do uso de LLMs',
+    'dominio_prompt': 'Nível em eng. de prompt',
+    'construcao_prompt': 'Como constrói seus prompts',
+    'uso_tecnicas': 'Frequência do uso de técnicas formais',
+    'qualidade': 'Qualidade respostas das LLMs',
+    'objetivo': 'Atendem ao objetivo',
+    'precisao': 'Precisão técnica das respostas',
+    'reformulacao': 'Reformular para obter resposta satisfatória',
+    'interacoes': 'Interações necessárias para resposta',
+    'facilidade': 'Facilidade de uso das LLMs',
+    'produtividade': 'LLMs melhora produtividade',
+    'esforco': 'Esforço necessário para boas respostas'
+}
+
 # =====================================================
 # SELEÇÃO DAS VARIÁVEIS IMPORTANTES
 # =====================================================
@@ -135,7 +153,9 @@ sns.heatmap(
     corr,
     annot=True,
     cmap='coolwarm',
-    fmt='.2f'
+    fmt='.2f',
+    xticklabels=titulos,  # Adicionado rótulos no eixo X
+    yticklabels=titulos   # Adicionado rótulos no eixo Y
 )
 
 plt.title('Mapa de Correlação Entre Variáveis')
@@ -206,16 +226,17 @@ def executar_anacor(var1, var2):
         print('ANACOR não possui duas dimensões suficientes.')
         return None
 
+    # Alterado o parâmetro label para refletir o nome real das variáveis analisadas
     plt.scatter(
         row_coords.iloc[:, 0],
         row_coords.iloc[:, 1],
-        label='Categorias Linha'
+        label=mapa_nomes_reversos.get(var1, var1)
     )
 
     plt.scatter(
         col_coords.iloc[:, 0],
         col_coords.iloc[:, 1],
-        label='Categorias Coluna'
+        label=mapa_nomes_reversos.get(var2, var2)
     )
 
     # Rótulos linhas
@@ -235,7 +256,7 @@ def executar_anacor(var1, var2):
     plt.axhline(0, color='gray', linestyle='--')
     plt.axvline(0, color='gray', linestyle='--')
 
-    plt.title(f'ANACOR - {var1} x {var2}')
+    plt.title(f'ANACOR - {mapa_nomes_reversos.get(var1, var1)} x {mapa_nomes_reversos.get(var2, var2)}')
     plt.xlabel('Dimensão 1')
     plt.ylabel('Dimensão 2')
     plt.legend()
