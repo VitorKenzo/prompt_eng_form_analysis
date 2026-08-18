@@ -145,7 +145,7 @@ df_corr = pd.DataFrame()
 for coluna in variaveis:
     df_corr[coluna] = pd.Categorical(df[coluna]).codes
 
-corr = df_corr.corr()
+corr = df_corr.corr(method='spearman')
 
 plt.figure(figsize=(12, 8))
 
