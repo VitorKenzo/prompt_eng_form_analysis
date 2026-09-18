@@ -4,7 +4,6 @@ import prince
 import seaborn as sns
 from scipy.stats import chi2_contingency
 from pathlib import Path
-from typing import cast
 
 
 # =====================================================
@@ -20,7 +19,7 @@ Path('resultados').mkdir(exist_ok=True)
 
 # Estilo visual
 plt.style.use('ggplot')
-sns.set_theme(style='whitegrid')
+sns.set_theme(style='whitegrid', rc={'figure.facecolor': 'white', 'axes.facecolor': 'white'})
 
 # =====================================================
 # LEITURA DOS DADOS
@@ -75,6 +74,37 @@ mapa_nomes_reversos = {
 }
 
 # =====================================================
+# MAPEAMENTO DE VALORES NUMÉRICOS PARA TEXTO (AP9)
+# =====================================================
+
+mapeamento_likert = {
+    'uso_tecnicas': {
+        1: '1 - Nunca', 2: '2 - Raramente', 3: '3 - Ocasionalmente', 
+        4: '4 - Frequentemente', 5: '5 - Sempre'
+    },
+    'qualidade': {
+        1: '1 - Muito baixa', 2: '2 - Baixa', 3: '3 - Moderada', 
+        4: '4 - Alta', 5: '5 - Muito alta'
+    },
+    'objetivo': {
+        1: '1 - Nunca', 2: '2 - Raramente', 3: '3 - Às vezes', 
+        4: '4 - Frequentemente', 5: '5 - Sempre'
+    },
+    'reformulacao': {
+        1: '1 - Sempre', 2: '2 - Frequentemente', 3: '3 - Às vezes', 
+        4: '4 - Raramente', 5: '5 - Nunca'
+    },
+    'facilidade': {
+        1: '1 - Muito difícil', 2: '2 - Difícil', 3: '3 - Moderada', 
+        4: '4 - Fácil', 5: '5 - Muito fácil'
+    }
+}
+
+for col, mapa in mapeamento_likert.items():
+    if col in df.columns:
+        df[col] = df[col].replace(mapa)
+
+# =====================================================
 # SELEÇÃO DAS VARIÁVEIS IMPORTANTES
 # =====================================================
 
@@ -107,22 +137,23 @@ titulos = [
 # =====================================================
 
 def grafico_barras(coluna, name):
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(10, 5), facecolor='white')
 
     contagem = df[coluna].value_counts()
 
     sns.barplot(
         x=contagem.index,
-        y=contagem.values
+        y=contagem.values,
+        palette='Blues_d'
     )
 
-    plt.title(f'Distribuição - {name}')
-    plt.xticks(rotation=25)
+    plt.title(f'Distribuição - {name}', fontsize=12, fontweight='bold')
+    plt.xticks(rotation=25, ha='right')
     plt.ylabel('Frequência')
     plt.tight_layout()
 
     caminho = f'graficos/barra_{coluna}.png'
-    plt.savefig(caminho, dpi=300)
+    plt.savefig(caminho, dpi=300, facecolor='white', bbox_inches='tight')
     plt.close()
 
     print(f'Gráfico salvo: {caminho}')
@@ -161,7 +192,7 @@ sns.heatmap(
 plt.title('Mapa de Correlação Entre Variáveis')
 plt.tight_layout()
 
-plt.savefig('graficos/heatmap_correlacao.png', dpi=300)
+plt.savefig('graficos/heatmap_correlacao.png', dpi=300, facecolor='white', bbox_inches='tight')
 plt.close()
 
 print('Heatmap salvo.')
@@ -219,52 +250,50 @@ def executar_anacor(var1, var2):
     # GRÁFICO ANACOR
     # -----------------------------
 
-    plt.figure(figsize=(10, 8))
+    fig, ax = plt.subplots(figsize=(12, 8), facecolor='white')
 
-    # Garantir que existam pelo menos 2 dimensões
-    if row_coords.shape[1] < 2 or col_coords.shape[1] < 2:
-        print('ANACOR não possui duas dimensões suficientes.')
-        return None
+    # Calcula um deslocamento proporcional à escala do gráfico
+    xlim = ax.get_xlim()
+    ylim = ax.get_ylim()
+    offset_x = (xlim[1] - xlim[0]) * 0.015
+    offset_y = (ylim[1] - ylim[0]) * 0.015
 
-    # Alterado o parâmetro label para refletir o nome real das variáveis analisadas
-    plt.scatter(
-        row_coords.iloc[:, 0],
-        row_coords.iloc[:, 1],
-        label=mapa_nomes_reversos.get(var1, var1)
-    )
+    # Para as LINHAS: desloca ligeiramente para CIMA e para a DIREITA
+    for label, (x, y) in row_coords.iterrows():
+        ax.scatter(x, y, color='darkblue', marker='o', s=60)
+        ax.annotate(
+            str(label), 
+            (x, y), 
+            xytext=(x + offset_x, y + offset_y),
+            ha='left', 
+            va='bottom',
+            fontsize=9, 
+            color='darkblue',
+            fontweight='bold'
+        )
 
-    plt.scatter(
-        col_coords.iloc[:, 0],
-        col_coords.iloc[:, 1],
-        label=mapa_nomes_reversos.get(var2, var2)
-    )
+    # Para as COLUNAS: desloca ligeiramente para BAIXO e para a ESQUERDA
+    for label, (x, y) in col_coords.iterrows():
+        ax.scatter(x, y, color='darkred', marker='^', s=60)
+        ax.annotate(
+            str(label), 
+            (x, y), 
+            xytext=(x - offset_x, y - offset_y),
+            ha='right', 
+            va='top',
+            fontsize=9, 
+            color='darkred',
+            fontweight='bold'
+        )
 
-    # Rótulos linhas
-    for i, txt in enumerate(row_coords.index):
-        x = row_coords.iloc[i, 0]
-        y = row_coords.iloc[i, 1]
+    ax.axhline(0, color='grey', linestyle='--', linewidth=0.8)
+    ax.axvline(0, color='grey', linestyle='--', linewidth=0.8)
 
-        plt.annotate(txt, cast(tuple[float, float], (x, y)))
-
-    # Rótulos colunas
-    for i, txt in enumerate(col_coords.index):
-        x = col_coords.iloc[i, 0]
-        y = col_coords.iloc[i, 1]
-
-        plt.annotate(txt, cast(tuple[float, float], (x, y)))
-
-    plt.axhline(0, color='gray', linestyle='--')
-    plt.axvline(0, color='gray', linestyle='--')
-
-    plt.title(f'ANACOR - {mapa_nomes_reversos.get(var1, var1)} x {mapa_nomes_reversos.get(var2, var2)}')
-    plt.xlabel('Dimensão 1')
-    plt.ylabel('Dimensão 2')
-    plt.legend()
+    plt.title(f'ANACOR - {mapa_nomes_reversos.get(var1, var1)} x {mapa_nomes_reversos.get(var2, var2)}', fontsize=12, fontweight='bold')
     plt.tight_layout()
 
     caminho = f'graficos/anacor_{var1}_{var2}.png'
-
-    plt.savefig(caminho, dpi=300)
+    plt.savefig(caminho, dpi=300, facecolor='white', bbox_inches='tight')
     plt.close()
 
     print(f'Gráfico salvo: {caminho}')
