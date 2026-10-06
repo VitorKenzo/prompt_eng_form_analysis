@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="NYY4XdOL_EaKswHWUSp2">
+    <mxGraphModel dx="1414" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-5" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontFamily=Helvetica;labelBackgroundColor=none;rounded=1;" value="Análise dos resultados" vertex="1">
+          <mxGeometry height="80" width="140" x="690" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-15" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-6" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;fontFamily=Helvetica;labelBackgroundColor=none;rounded=1;" value="Definição do Escopo" vertex="1">
+          <mxGeometry height="80" width="140" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-16" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-7" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fontFamily=Helvetica;labelBackgroundColor=none;" value="Questionário Online" vertex="1">
+          <mxGeometry height="90" width="150" x="230" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-17" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;labelBackgroundColor=none;fontFamily=Helvetica;" value="Limpeza e padronização dos dados" vertex="1">
+          <mxGeometry height="100" width="100" x="460" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-18" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;labelBackgroundColor=none;fontFamily=Helvetica;" value="Análise exploratória e heatmap" vertex="1">
+          <mxGeometry height="100" width="100" x="640" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-19" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;labelBackgroundColor=none;fontFamily=Helvetica;" value="Teste de independência Qui-Quadrado" vertex="1">
+          <mxGeometry height="100" width="100" x="250" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-20" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-21" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-11" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Helvetica;labelBackgroundColor=none;rounded=1;" value="p-valor &amp;lt; 0,05?" vertex="1">
+          <mxGeometry height="100" width="100" x="250" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Helvetica;labelBackgroundColor=none;" value="Descarte &lt;br&gt;(p &amp;gt;= 0,05)" vertex="1">
+          <mxGeometry height="100" width="100" x="90" y="442" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-22" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Helvetica;labelBackgroundColor=none;" value="Execução da ANACOR&lt;br&gt;(p &amp;lt; 0,05)" vertex="1">
+          <mxGeometry height="100" width="100" x="390" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Helvetica;labelBackgroundColor=none;" value="Gera mapas Perceptuais" vertex="1">
+          <mxGeometry height="100" width="100" x="550" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="KMNrWwOzkIjTRyBocWyY-24" edge="1" parent="1" source="KMNrWwOzkIjTRyBocWyY-14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=default;fontFamily=Helvetica;labelBackgroundColor=none;" target="KMNrWwOzkIjTRyBocWyY-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

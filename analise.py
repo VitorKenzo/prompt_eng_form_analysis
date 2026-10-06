@@ -258,6 +258,12 @@ def executar_anacor(var1, var2):
     offset_x = (xlim[1] - xlim[0]) * 0.015
     offset_y = (ylim[1] - ylim[0]) * 0.015
 
+    # Cria "pontos fantasmas" apenas para aparecerem na legenda
+    nome_var1 = mapa_nomes_reversos.get(var1, var1)
+    nome_var2 = mapa_nomes_reversos.get(var2, var2)
+    ax.scatter([], [], color='darkblue', marker='o', s=60, label=nome_var1)
+    ax.scatter([], [], color='darkred', marker='^', s=60, label=nome_var2)
+
     # Para as LINHAS: desloca ligeiramente para CIMA e para a DIREITA
     for label, (x, y) in row_coords.iterrows():
         ax.scatter(x, y, color='darkblue', marker='o', s=60)
@@ -288,6 +294,9 @@ def executar_anacor(var1, var2):
 
     ax.axhline(0, color='grey', linestyle='--', linewidth=0.8)
     ax.axvline(0, color='grey', linestyle='--', linewidth=0.8)
+
+    # Adicionando a caixa de legenda no gráfico
+    ax.legend(title='Variáveis', loc='best', fontsize=10)
 
     plt.title(f'ANACOR - {mapa_nomes_reversos.get(var1, var1)} x {mapa_nomes_reversos.get(var2, var2)}', fontsize=12, fontweight='bold')
     plt.tight_layout()
